@@ -62,9 +62,8 @@ namespace HC128.Desktop
             // Show messagebox
             if (errors.Count() > 0)
             {
-                string caption = "Error/es encontrados";
                 string message = String.Join("\n", errors);
-                MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowMessage(message, true);
                 return false;
             }
             return true;

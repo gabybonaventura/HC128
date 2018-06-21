@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -65,9 +67,8 @@ namespace HC128.Desktop
             // Show messagebox
             if (errors.Count() > 0)
             {
-                string caption = "Error/es encontrados";
                 string message = String.Join("\n", errors);
-                MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowMessage(message, true);
                 return false;
             }
             return true;
@@ -97,7 +98,50 @@ namespace HC128.Desktop
 
         private void btnDownloadImage_Click_1(object sender, EventArgs e)
         {
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
+            saveFileDialog1.Title = "Save Image";
+            saveFileDialog1.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.FileName = listFiles.SelectedItem.ToString();
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((myStream = saveFileDialog1.OpenFile()) != null)
+                {
+                    // Code to write the stream goes here.
+                    var path = saveFileDialog1.FileName;
+                    //var path = listFiles.SelectedItem.ToString();
+                    //var extensiones = path.Split('.');
+                    //var extension = extensiones[extensiones.Count()-1];
+                    picBox.Image.Save(path);
+                    //switch (extension)
+                    //{
+                    //    case "jpg":
+                    //        picBox.Image.Save(path, ImageFormat.Jpeg);
+                    //        break;
+
+                    //    case "jpeg":
+                    //        picBox.Image.Save(path, ImageFormat.Jpeg);
+                    //        break;
+
+                    //    case "bmp":
+                    //        picBox.Image.Save(path, ImageFormat.Bmp);
+                    //        break;
+
+                    //    case "png":
+                    //        picBox.Image.Save(path, ImageFormat.Png);
+                    //        break;
+
+                    //    default:
+                    //        picBox.Image.Save(path, ImageFormat.Jpeg);
+                    //        break;
+                    //}
+                    myStream.Close();
+                }
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
