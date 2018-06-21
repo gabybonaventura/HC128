@@ -27,9 +27,16 @@ namespace HC128.Desktop
         {
             List<string> ListFiles = await API.GetImageName(txtIPServer.Text);
             listFiles.Items.Clear();
-            foreach (string imageName in ListFiles)
+            if(ListFiles != null)
             {
-                listFiles.Items.Add(imageName);
+                foreach (string imageName in ListFiles)
+                {
+                    listFiles.Items.Add(imageName);
+                }
+            }
+            else
+            {
+                ShowMessage("Error al conectarse con el servidor.", true);
             }
         }
 
@@ -68,18 +75,19 @@ namespace HC128.Desktop
 
         private async Task DecryptFile()
         {
-            ImgAPI imgApi = await API
-                .GetImageDetail(txtIPServer.Text, listFiles.SelectedItem.ToString());
+            ImgAPI imgApi = await API.GetImageDetail(txtIPServer.Text, listFiles.SelectedItem.ToString());
+            
+            if(imgApi != null)
+            {
+                Byte[] bytes = Convert.FromBase64String(imgApi.imageByteArray);
+                Bitmap bitmap = ConvertImg.ToBitMap(bytes);
 
-            //ImgDTO imgDto = new ImgDTO(
-            //    listFiles.SelectedItem.ToString()
-            //    , null
-            //    , Encoding.ASCII.GetBytes(imgApi.imageByteArray));
-
-            Byte[] bytes = Convert.FromBase64String(imgApi.imageByteArray);
-            Bitmap bitmap = ConvertImg.ToBitMap(bytes);
-
-            picBox.Image = bitmap;
+                picBox.Image = bitmap;
+            }
+            else
+            {
+                ShowMessage("Error al descargar la imagen.", true);
+            }
         }
 
         private void FrmDecrypt_Load(object sender, EventArgs e)
@@ -115,6 +123,15 @@ namespace HC128.Desktop
                 DecryptFile();
                 btnDownloadImage.Enabled = true;
             }
+        }
+
+        private void ShowMessage(string message, bool isError = false)
+        {
+            string caption = "HC-128";
+            if (isError)
+                MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

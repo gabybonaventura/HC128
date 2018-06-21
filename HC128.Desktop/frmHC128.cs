@@ -85,20 +85,12 @@ namespace HC128.Desktop
                 imageByteArray = stringImg
             };
 
-            //List<string> list = await API.GetImageName(txtIPServer.Text);
-
-            //ImgAPI imgapi = await API.GetImageDetail(txtIPServer.Text, "gatito.jpg");
-
-            await API.PostImage(txtIPServer.Text, imgAPI);
-
-            string caption = "HC-128";
-            string message = "Imagen encriptada exitosamente.\n";
-            //message += stringImg + "\n";
-            //message += String.Join("\n",list) + "\n";
-            //message += imgapi.imageName + "\n";
-            //message += imgapi.imageByteArray + "\n";
-
-            MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            bool postSuccess = await API.PostImage(txtIPServer.Text, imgAPI);
+            
+            if (postSuccess)
+                ShowMessage("Imagen encriptada y subida exitosamente..");
+            else
+                ShowMessage("Error al conectarse con el servidor.", true);
         }
 
 
@@ -121,15 +113,26 @@ namespace HC128.Desktop
                 }
             }
         }
-
+        
         private void btnUploadImage_Click(object sender, EventArgs e)
         {
             var isValidated = ValidateBeforeUpload();
             if (isValidated)
             {
+                //bool postSuccess = false;
                 Byte[] encrypt = Encrypt(txtNameImg.Text, (Bitmap)picBox.Image);
                 Upload(txtNameImg.Text, encrypt);
+                
             }
+        }
+
+        private void ShowMessage(string message, bool isError = false)
+        {
+            string caption = "HC-128";
+            if(isError)
+                MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnWebCam_Click(object sender, EventArgs e)

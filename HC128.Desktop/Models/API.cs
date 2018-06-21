@@ -15,34 +15,59 @@ namespace HC128.Desktop.Models
         {
             var path = url + @"/api/Image/Names";
             string responseString = "";
-            using (HttpClient client = new HttpClient())
+            try
             {
-                responseString = await client.GetStringAsync("http://" + path);
-            }
+                using (HttpClient client = new HttpClient())
+                {
+                    responseString = await client.GetStringAsync("http://" + path);
+                }
 
-            return JsonConvert.DeserializeObject<List<string>>(responseString);
+                return JsonConvert.DeserializeObject<List<string>>(responseString);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public static async Task<ImgAPI> GetImageDetail(string url, string name)
         {
             var path = url + @"/api/Image/" + name;
             string responseString = "";
-            using (HttpClient client = new HttpClient())
-            {
-                responseString = await client.GetStringAsync("http://" + path);
-            }
 
-            return JsonConvert.DeserializeObject<ImgAPI>(responseString);
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    responseString = await client.GetStringAsync("http://" + path);
+                }
+
+                return JsonConvert.DeserializeObject<ImgAPI>(responseString);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
-        public static async Task PostImage(string url, ImgAPI imgApi)
+        public static async Task<bool> PostImage(string url, ImgAPI imgApi)
         {
             var path = url + @"/api/Image";
             HttpResponseMessage Response;
-            using (HttpClient client = new HttpClient())
+            try
             {
-                Response = await client.PostAsJsonAsync("http://" + path, imgApi);
+                using (HttpClient client = new HttpClient())
+                {
+                    Response = await client.PostAsJsonAsync("http://" + path, imgApi);
+                }
+                if (Response.IsSuccessStatusCode)
+                    return true;
             }
+            catch (Exception)
+            {
+                return false;
+            }
+            return false;
         }
     }
 }
