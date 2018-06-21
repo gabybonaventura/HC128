@@ -17,7 +17,7 @@ namespace HC128.Desktop.Models
             string responseString = "";
             using (HttpClient client = new HttpClient())
             {
-                responseString = await client.GetStringAsync("http://"+path);
+                responseString = await client.GetStringAsync("http://" + path);
             }
 
             return JsonConvert.DeserializeObject<List<string>>(responseString);
@@ -33,6 +33,16 @@ namespace HC128.Desktop.Models
             }
 
             return JsonConvert.DeserializeObject<ImgAPI>(responseString);
+        }
+
+        public static async Task PostImage(string url, ImgAPI imgApi)
+        {
+            var path = url + @"/api/Image";
+            HttpResponseMessage Response;
+            using (HttpClient client = new HttpClient())
+            {
+                Response = await client.PostAsJsonAsync("http://" + path, imgApi);
+            }
         }
     }
 }

@@ -19,11 +19,11 @@ namespace HC128.Desktop
     public partial class FrmHC128 : Form
     {
         //private static string IPRegex = @"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
-       
+
         public FrmHC128()
         {
             InitializeComponent();
-            
+
         }
 
         private void FrmHC128_Load(object sender, EventArgs e)
@@ -47,16 +47,16 @@ namespace HC128.Desktop
             //Regex regex = new Regex(IPRegex);
             var ipServer = txtIPServer.Text;
             //if (!regex.IsMatch(ipServer))
-            if(ipServer.Length == 0)
+            if (ipServer.Length == 0)
                 errors.Add("Debe ingresar una IP.");
 
             var img = picBox.Image;
-            if(img == null)
+            if (img == null)
                 errors.Add("No hay una imagen seleccionada.");
 
             // Validate FileName
             var fileName = txtNameImg.Text;
-            if(fileName.Length == 0)
+            if (fileName.Length == 0)
                 errors.Add("Debe insertar un nombre.");
 
             // Show messagebox
@@ -64,7 +64,7 @@ namespace HC128.Desktop
             {
                 string caption = "Error/es encontrados";
                 string message = String.Join("\n", errors);
-                MessageBox.Show(this,message,caption,MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -78,22 +78,23 @@ namespace HC128.Desktop
 
         private async Task Upload(string nameFile, Byte[] bytes)
         {
-            string stringImg = Encoding.UTF8.GetString(bytes);
+            string stringImg = Encoding.ASCII.GetString(bytes);
             ImgAPI imgAPI = new ImgAPI
             {
                 imageName = nameFile,
                 imageByteArray = stringImg
             };
 
-            List<string> list = await API.GetImageName(txtIPServer.Text);
+            //List<string> list = await API.GetImageName(txtIPServer.Text);
 
             ImgAPI imgapi = await API.GetImageDetail(txtIPServer.Text, "gatito.jpg");
 
             string caption = "HC-128";
             string message = "Imagen encriptada exitosamente. OK\n";
-            message += String.Join("\n",list) + "\n";
-            message += imgapi.imageName + "\n";
-            message += imgapi.imageByteArray + "\n";
+            //message += stringImg + "\n";
+            //message += String.Join("\n",list) + "\n";
+            //message += imgapi.imageName + "\n";
+            //message += imgapi.imageByteArray + "\n";
 
             MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -128,11 +129,11 @@ namespace HC128.Desktop
                 Upload(txtNameImg.Text, encrypt);
             }
         }
-               
+
         private void btnWebCam_Click(object sender, EventArgs e)
         {
             //EnableBtns();
         }
-        
+
     }
 }
