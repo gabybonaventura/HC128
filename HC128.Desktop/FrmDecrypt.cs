@@ -76,7 +76,7 @@ namespace HC128.Desktop
             //    , null
             //    , Encoding.ASCII.GetBytes(imgApi.imageByteArray));
 
-            Byte[] bytes = Encoding.ASCII.GetBytes(imgApi.imageByteArray);
+            Byte[] bytes = Convert.FromBase64String(imgApi.imageByteArray);
             Bitmap bitmap = ConvertImg.ToBitMap(bytes);
 
             picBox.Image = bitmap;
@@ -98,6 +98,16 @@ namespace HC128.Desktop
         }
 
         private void btnDecryptImage_Click(object sender, EventArgs e)
+        {
+            var isValidated = BeforeDownloadFile();
+            if (isValidated)
+            {
+                DecryptFile();
+                btnDownloadImage.Enabled = true;
+            }
+        }
+
+        private void btnDecryptImage_Click_1(object sender, EventArgs e)
         {
             var isValidated = BeforeDownloadFile();
             if (isValidated)

@@ -77,6 +77,7 @@
             // 
             this.txtStreamKey.Location = new System.Drawing.Point(12, 301);
             this.txtStreamKey.Name = "txtStreamKey";
+            this.txtStreamKey.PasswordChar = '*';
             this.txtStreamKey.Size = new System.Drawing.Size(159, 20);
             this.txtStreamKey.TabIndex = 6;
             // 
@@ -91,13 +92,15 @@
             this.btnDecryptImage.Text = "Desencriptar Imagen";
             this.btnDecryptImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDecryptImage.UseVisualStyleBackColor = false;
+            this.btnDecryptImage.Click += new System.EventHandler(this.btnDecryptImage_Click_1);
             // 
             // picBox
             // 
             this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picBox.Location = new System.Drawing.Point(177, 12);
             this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(595, 537);
+            this.picBox.Size = new System.Drawing.Size(795, 537);
+            this.picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox.TabIndex = 4;
             this.picBox.TabStop = false;
             // 
@@ -136,7 +139,7 @@
             this.txtIPServer.Name = "txtIPServer";
             this.txtIPServer.Size = new System.Drawing.Size(156, 22);
             this.txtIPServer.TabIndex = 10;
-            this.txtIPServer.Text = "127.0.0.1:54986";
+            this.txtIPServer.Text = "127.0.0.1:55471";
             // 
             // lblIpServer
             // 
@@ -154,7 +157,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.txtIPServer);
             this.Controls.Add(this.lblIpServer);
             this.Controls.Add(this.btnDownloadImage);
