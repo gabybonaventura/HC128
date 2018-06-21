@@ -116,7 +116,8 @@ namespace HC128.Desktop
                     //var path = listFiles.SelectedItem.ToString();
                     //var extensiones = path.Split('.');
                     //var extension = extensiones[extensiones.Count()-1];
-                    picBox.Image.Save(path);
+                    Bitmap bm = new Bitmap(picBox.Image);
+                    bm.Save(path, ImageFormat.Jpeg);
                     //switch (extension)
                     //{
                     //    case "jpg":
