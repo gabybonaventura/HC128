@@ -121,7 +121,6 @@ namespace HC128.Desktop
                 //bool postSuccess = false;
                 Byte[] encrypt = Encrypt(txtNameImg.Text, (Bitmap)picBox.Image);
                 Upload(txtNameImg.Text, encrypt);
-                
             }
         }
 
