@@ -117,7 +117,7 @@
             // 
             this.btnSelectImage.BackColor = System.Drawing.Color.White;
             this.btnSelectImage.Image = global::HC128.Desktop.Properties.Resources.folder;
-            this.btnSelectImage.Location = new System.Drawing.Point(12, 11);
+            this.btnSelectImage.Location = new System.Drawing.Point(12, 12);
             this.btnSelectImage.Name = "btnSelectImage";
             this.btnSelectImage.Size = new System.Drawing.Size(159, 43);
             this.btnSelectImage.TabIndex = 0;
@@ -143,7 +143,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmHC128";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HC-128 Demo";
+            this.Text = "HC-128 Encriptar";
             this.Load += new System.EventHandler(this.FrmHC128_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.ResumeLayout(false);

@@ -207,7 +207,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmDecrypt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HC-128 Demo";
+            this.Text = "HC-128 Desencriptar";
             this.Load += new System.EventHandler(this.FrmDecrypt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.ResumeLayout(false);
