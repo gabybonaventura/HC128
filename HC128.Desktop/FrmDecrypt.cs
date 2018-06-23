@@ -61,9 +61,9 @@ namespace HC128.Desktop
                 errors.Add("Debe seleccionar un archivo.");
 
             // Validate FileName
-            var streamKey = txtStreamKey.Text;
-            if (streamKey.Length == 0)
-                errors.Add("Debe insertar una Stream Key.");
+            //var streamKey = txtStreamKey.Text;
+            //if (streamKey.Length == 0)
+            //    errors.Add("Debe insertar una Stream Key.");
 
             // Show messagebox
             if (errors.Count() > 0)

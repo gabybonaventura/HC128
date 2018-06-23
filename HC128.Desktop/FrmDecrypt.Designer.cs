@@ -30,8 +30,6 @@
         {
             this.lblFiles = new System.Windows.Forms.Label();
             this.listFiles = new System.Windows.Forms.ListBox();
-            this.lblStreamKey = new System.Windows.Forms.Label();
-            this.txtStreamKey = new System.Windows.Forms.TextBox();
             this.txtIPServer = new System.Windows.Forms.TextBox();
             this.lblIpServer = new System.Windows.Forms.Label();
             this.btnAbrirImg = new System.Windows.Forms.Button();
@@ -40,6 +38,10 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.picBox = new System.Windows.Forms.PictureBox();
             this.btnAbrirCarpeta = new System.Windows.Forms.Button();
+            this.txtIV = new System.Windows.Forms.TextBox();
+            this.lblIV = new System.Windows.Forms.Label();
+            this.txtKey = new System.Windows.Forms.TextBox();
+            this.lblKey = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,26 +65,6 @@
             this.listFiles.Size = new System.Drawing.Size(159, 147);
             this.listFiles.Sorted = true;
             this.listFiles.TabIndex = 3;
-            // 
-            // lblStreamKey
-            // 
-            this.lblStreamKey.AutoSize = true;
-            this.lblStreamKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreamKey.ForeColor = System.Drawing.Color.White;
-            this.lblStreamKey.Location = new System.Drawing.Point(12, 276);
-            this.lblStreamKey.Name = "lblStreamKey";
-            this.lblStreamKey.Size = new System.Drawing.Size(91, 16);
-            this.lblStreamKey.TabIndex = 5;
-            this.lblStreamKey.Text = "Stream Key:";
-            // 
-            // txtStreamKey
-            // 
-            this.txtStreamKey.Location = new System.Drawing.Point(12, 295);
-            this.txtStreamKey.Multiline = true;
-            this.txtStreamKey.Name = "txtStreamKey";
-            this.txtStreamKey.PasswordChar = '*';
-            this.txtStreamKey.Size = new System.Drawing.Size(159, 107);
-            this.txtStreamKey.TabIndex = 6;
             // 
             // txtIPServer
             // 
@@ -114,7 +96,6 @@
             this.btnAbrirImg.Name = "btnAbrirImg";
             this.btnAbrirImg.Size = new System.Drawing.Size(79, 43);
             this.btnAbrirImg.TabIndex = 11;
-            this.btnAbrirImg.Text = "File";
             this.btnAbrirImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAbrirImg.UseVisualStyleBackColor = false;
             this.btnAbrirImg.Visible = false;
@@ -179,11 +160,48 @@
             this.btnAbrirCarpeta.Name = "btnAbrirCarpeta";
             this.btnAbrirCarpeta.Size = new System.Drawing.Size(79, 43);
             this.btnAbrirCarpeta.TabIndex = 12;
-            this.btnAbrirCarpeta.Text = "Folder";
             this.btnAbrirCarpeta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAbrirCarpeta.UseVisualStyleBackColor = false;
             this.btnAbrirCarpeta.Visible = false;
             this.btnAbrirCarpeta.Click += new System.EventHandler(this.btnAbrirCarpeta_Click);
+            // 
+            // txtIV
+            // 
+            this.txtIV.Location = new System.Drawing.Point(12, 337);
+            this.txtIV.MaxLength = 4;
+            this.txtIV.Name = "txtIV";
+            this.txtIV.Size = new System.Drawing.Size(159, 20);
+            this.txtIV.TabIndex = 16;
+            // 
+            // lblIV
+            // 
+            this.lblIV.AutoSize = true;
+            this.lblIV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIV.ForeColor = System.Drawing.Color.White;
+            this.lblIV.Location = new System.Drawing.Point(9, 318);
+            this.lblIV.Name = "lblIV";
+            this.lblIV.Size = new System.Drawing.Size(147, 16);
+            this.lblIV.TabIndex = 15;
+            this.lblIV.Text = "Vector Inicialización";
+            // 
+            // txtKey
+            // 
+            this.txtKey.Location = new System.Drawing.Point(12, 295);
+            this.txtKey.MaxLength = 4;
+            this.txtKey.Name = "txtKey";
+            this.txtKey.Size = new System.Drawing.Size(159, 20);
+            this.txtKey.TabIndex = 14;
+            // 
+            // lblKey
+            // 
+            this.lblKey.AutoSize = true;
+            this.lblKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKey.ForeColor = System.Drawing.Color.White;
+            this.lblKey.Location = new System.Drawing.Point(9, 276);
+            this.lblKey.Name = "lblKey";
+            this.lblKey.Size = new System.Drawing.Size(46, 16);
+            this.lblKey.TabIndex = 13;
+            this.lblKey.Text = "Llave";
             // 
             // FrmDecrypt
             // 
@@ -191,14 +209,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.txtIV);
+            this.Controls.Add(this.lblIV);
+            this.Controls.Add(this.txtKey);
+            this.Controls.Add(this.lblKey);
             this.Controls.Add(this.btnAbrirCarpeta);
             this.Controls.Add(this.btnAbrirImg);
             this.Controls.Add(this.txtIPServer);
             this.Controls.Add(this.lblIpServer);
             this.Controls.Add(this.btnDownloadImage);
             this.Controls.Add(this.btnDecryptImage);
-            this.Controls.Add(this.txtStreamKey);
-            this.Controls.Add(this.lblStreamKey);
             this.Controls.Add(this.listFiles);
             this.Controls.Add(this.lblFiles);
             this.Controls.Add(this.btnUpdate);
@@ -221,13 +241,15 @@
         private System.Windows.Forms.Label lblFiles;
         private System.Windows.Forms.ListBox listFiles;
         private System.Windows.Forms.PictureBox picBox;
-        private System.Windows.Forms.Label lblStreamKey;
-        private System.Windows.Forms.TextBox txtStreamKey;
         private System.Windows.Forms.Button btnDecryptImage;
         private System.Windows.Forms.Button btnDownloadImage;
         private System.Windows.Forms.TextBox txtIPServer;
         private System.Windows.Forms.Label lblIpServer;
         private System.Windows.Forms.Button btnAbrirImg;
         private System.Windows.Forms.Button btnAbrirCarpeta;
+        private System.Windows.Forms.TextBox txtIV;
+        private System.Windows.Forms.Label lblIV;
+        private System.Windows.Forms.TextBox txtKey;
+        private System.Windows.Forms.Label lblKey;
     }
 }
