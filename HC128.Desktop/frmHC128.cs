@@ -35,7 +35,6 @@ namespace HC128.Desktop
         {
             // Enable btn upload 
             btnUploadImage.Enabled = true;
-            btnUploadImage.BackColor = Color.LimeGreen;
         }
 
         private bool ValidateBeforeUpload()

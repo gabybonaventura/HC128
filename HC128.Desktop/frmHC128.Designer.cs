@@ -43,7 +43,7 @@
             // 
             this.lblIpServer.AutoSize = true;
             this.lblIpServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIpServer.Location = new System.Drawing.Point(474, 12);
+            this.lblIpServer.Location = new System.Drawing.Point(9, 148);
             this.lblIpServer.Name = "lblIpServer";
             this.lblIpServer.Size = new System.Drawing.Size(72, 16);
             this.lblIpServer.TabIndex = 3;
@@ -52,25 +52,25 @@
             // txtIPServer
             // 
             this.txtIPServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPServer.Location = new System.Drawing.Point(477, 31);
+            this.txtIPServer.Location = new System.Drawing.Point(12, 167);
             this.txtIPServer.MaxLength = 15;
             this.txtIPServer.Name = "txtIPServer";
-            this.txtIPServer.Size = new System.Drawing.Size(129, 22);
+            this.txtIPServer.Size = new System.Drawing.Size(159, 22);
             this.txtIPServer.TabIndex = 4;
             this.txtIPServer.Text = "127.0.0.1:60757";
             // 
             // txtNameImg
             // 
-            this.txtNameImg.Location = new System.Drawing.Point(242, 33);
+            this.txtNameImg.Location = new System.Drawing.Point(12, 125);
             this.txtNameImg.Name = "txtNameImg";
-            this.txtNameImg.Size = new System.Drawing.Size(229, 20);
+            this.txtNameImg.Size = new System.Drawing.Size(159, 20);
             this.txtNameImg.TabIndex = 7;
             // 
             // lblNameImg
             // 
             this.lblNameImg.AutoSize = true;
             this.lblNameImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameImg.Location = new System.Drawing.Point(242, 14);
+            this.lblNameImg.Location = new System.Drawing.Point(9, 106);
             this.lblNameImg.Name = "lblNameImg";
             this.lblNameImg.Size = new System.Drawing.Size(118, 16);
             this.lblNameImg.TabIndex = 6;
@@ -80,9 +80,9 @@
             // 
             this.btnWebCam.BackColor = System.Drawing.Color.White;
             this.btnWebCam.Image = global::HC128.Desktop.Properties.Resources.camera;
-            this.btnWebCam.Location = new System.Drawing.Point(131, 11);
+            this.btnWebCam.Location = new System.Drawing.Point(12, 60);
             this.btnWebCam.Name = "btnWebCam";
-            this.btnWebCam.Size = new System.Drawing.Size(105, 43);
+            this.btnWebCam.Size = new System.Drawing.Size(159, 43);
             this.btnWebCam.TabIndex = 5;
             this.btnWebCam.Text = "Foto WebCam";
             this.btnWebCam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -94,9 +94,9 @@
             this.btnUploadImage.BackColor = System.Drawing.Color.White;
             this.btnUploadImage.Enabled = false;
             this.btnUploadImage.Image = global::HC128.Desktop.Properties.Resources.upload;
-            this.btnUploadImage.Location = new System.Drawing.Point(612, 11);
+            this.btnUploadImage.Location = new System.Drawing.Point(12, 195);
             this.btnUploadImage.Name = "btnUploadImage";
-            this.btnUploadImage.Size = new System.Drawing.Size(160, 43);
+            this.btnUploadImage.Size = new System.Drawing.Size(159, 43);
             this.btnUploadImage.TabIndex = 2;
             this.btnUploadImage.Text = "Subir Imagen";
             this.btnUploadImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -106,9 +106,9 @@
             // picBox
             // 
             this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox.Location = new System.Drawing.Point(12, 60);
+            this.picBox.Location = new System.Drawing.Point(184, -1);
             this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(760, 489);
+            this.picBox.Size = new System.Drawing.Size(800, 564);
             this.picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox.TabIndex = 1;
             this.picBox.TabStop = false;
@@ -119,9 +119,9 @@
             this.btnSelectImage.Image = global::HC128.Desktop.Properties.Resources.folder;
             this.btnSelectImage.Location = new System.Drawing.Point(12, 11);
             this.btnSelectImage.Name = "btnSelectImage";
-            this.btnSelectImage.Size = new System.Drawing.Size(113, 43);
+            this.btnSelectImage.Size = new System.Drawing.Size(159, 43);
             this.btnSelectImage.TabIndex = 0;
-            this.btnSelectImage.Text = "Seleccionar Imagen";
+            this.btnSelectImage.Text = "Abrir Imagen";
             this.btnSelectImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSelectImage.UseVisualStyleBackColor = false;
             this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
@@ -129,8 +129,8 @@
             // FrmHC128
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.txtNameImg);
             this.Controls.Add(this.lblNameImg);
             this.Controls.Add(this.btnWebCam);

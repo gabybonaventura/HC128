@@ -32,12 +32,14 @@
             this.listFiles = new System.Windows.Forms.ListBox();
             this.lblStreamKey = new System.Windows.Forms.Label();
             this.txtStreamKey = new System.Windows.Forms.TextBox();
-            this.btnDecryptImage = new System.Windows.Forms.Button();
-            this.picBox = new System.Windows.Forms.PictureBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDownloadImage = new System.Windows.Forms.Button();
             this.txtIPServer = new System.Windows.Forms.TextBox();
             this.lblIpServer = new System.Windows.Forms.Label();
+            this.btnAbrirImg = new System.Windows.Forms.Button();
+            this.btnDownloadImage = new System.Windows.Forms.Button();
+            this.btnDecryptImage = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.picBox = new System.Windows.Forms.PictureBox();
+            this.btnAbrirCarpeta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +48,7 @@
             this.lblFiles.AutoSize = true;
             this.lblFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiles.ForeColor = System.Drawing.Color.White;
-            this.lblFiles.Location = new System.Drawing.Point(9, 113);
+            this.lblFiles.Location = new System.Drawing.Point(9, 107);
             this.lblFiles.Name = "lblFiles";
             this.lblFiles.Size = new System.Drawing.Size(130, 16);
             this.lblFiles.TabIndex = 1;
@@ -56,7 +58,7 @@
             // 
             this.listFiles.AllowDrop = true;
             this.listFiles.FormattingEnabled = true;
-            this.listFiles.Location = new System.Drawing.Point(12, 132);
+            this.listFiles.Location = new System.Drawing.Point(12, 126);
             this.listFiles.Name = "listFiles";
             this.listFiles.Size = new System.Drawing.Size(159, 147);
             this.listFiles.Sorted = true;
@@ -67,7 +69,7 @@
             this.lblStreamKey.AutoSize = true;
             this.lblStreamKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStreamKey.ForeColor = System.Drawing.Color.White;
-            this.lblStreamKey.Location = new System.Drawing.Point(12, 282);
+            this.lblStreamKey.Location = new System.Drawing.Point(12, 276);
             this.lblStreamKey.Name = "lblStreamKey";
             this.lblStreamKey.Size = new System.Drawing.Size(91, 16);
             this.lblStreamKey.TabIndex = 5;
@@ -75,61 +77,12 @@
             // 
             // txtStreamKey
             // 
-            this.txtStreamKey.Location = new System.Drawing.Point(12, 301);
+            this.txtStreamKey.Location = new System.Drawing.Point(12, 295);
+            this.txtStreamKey.Multiline = true;
             this.txtStreamKey.Name = "txtStreamKey";
             this.txtStreamKey.PasswordChar = '*';
-            this.txtStreamKey.Size = new System.Drawing.Size(159, 20);
+            this.txtStreamKey.Size = new System.Drawing.Size(159, 107);
             this.txtStreamKey.TabIndex = 6;
-            // 
-            // btnDecryptImage
-            // 
-            this.btnDecryptImage.BackColor = System.Drawing.Color.White;
-            this.btnDecryptImage.Image = global::HC128.Desktop.Properties.Resources.unlock;
-            this.btnDecryptImage.Location = new System.Drawing.Point(12, 328);
-            this.btnDecryptImage.Name = "btnDecryptImage";
-            this.btnDecryptImage.Size = new System.Drawing.Size(159, 43);
-            this.btnDecryptImage.TabIndex = 7;
-            this.btnDecryptImage.Text = "Desencriptar Imagen";
-            this.btnDecryptImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDecryptImage.UseVisualStyleBackColor = false;
-            this.btnDecryptImage.Click += new System.EventHandler(this.btnDecryptImage_Click_1);
-            // 
-            // picBox
-            // 
-            this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox.Location = new System.Drawing.Point(177, 12);
-            this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(795, 537);
-            this.picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox.TabIndex = 4;
-            this.picBox.TabStop = false;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.White;
-            this.btnUpdate.Image = global::HC128.Desktop.Properties.Resources.load;
-            this.btnUpdate.Location = new System.Drawing.Point(12, 59);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(159, 45);
-            this.btnUpdate.TabIndex = 0;
-            this.btnUpdate.Text = "Actualizar";
-            this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnDownloadImage
-            // 
-            this.btnDownloadImage.BackColor = System.Drawing.Color.White;
-            this.btnDownloadImage.Enabled = false;
-            this.btnDownloadImage.Image = global::HC128.Desktop.Properties.Resources.download;
-            this.btnDownloadImage.Location = new System.Drawing.Point(12, 506);
-            this.btnDownloadImage.Name = "btnDownloadImage";
-            this.btnDownloadImage.Size = new System.Drawing.Size(159, 43);
-            this.btnDownloadImage.TabIndex = 8;
-            this.btnDownloadImage.Text = "Descargar Imagen";
-            this.btnDownloadImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDownloadImage.UseVisualStyleBackColor = false;
-            this.btnDownloadImage.Click += new System.EventHandler(this.btnDownloadImage_Click_1);
             // 
             // txtIPServer
             // 
@@ -152,12 +105,94 @@
             this.lblIpServer.TabIndex = 9;
             this.lblIpServer.Text = "IP Server";
             // 
+            // btnAbrirImg
+            // 
+            this.btnAbrirImg.BackColor = System.Drawing.Color.White;
+            this.btnAbrirImg.ForeColor = System.Drawing.Color.Black;
+            this.btnAbrirImg.Image = global::HC128.Desktop.Properties.Resources.Graphicloads_100_Flat_Note;
+            this.btnAbrirImg.Location = new System.Drawing.Point(12, 506);
+            this.btnAbrirImg.Name = "btnAbrirImg";
+            this.btnAbrirImg.Size = new System.Drawing.Size(79, 43);
+            this.btnAbrirImg.TabIndex = 11;
+            this.btnAbrirImg.Text = "File";
+            this.btnAbrirImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbrirImg.UseVisualStyleBackColor = false;
+            this.btnAbrirImg.Visible = false;
+            this.btnAbrirImg.Click += new System.EventHandler(this.btnAbrirImg_Click);
+            // 
+            // btnDownloadImage
+            // 
+            this.btnDownloadImage.BackColor = System.Drawing.Color.White;
+            this.btnDownloadImage.Enabled = false;
+            this.btnDownloadImage.Image = global::HC128.Desktop.Properties.Resources.download;
+            this.btnDownloadImage.Location = new System.Drawing.Point(12, 457);
+            this.btnDownloadImage.Name = "btnDownloadImage";
+            this.btnDownloadImage.Size = new System.Drawing.Size(159, 43);
+            this.btnDownloadImage.TabIndex = 8;
+            this.btnDownloadImage.Text = "Descargar Imagen";
+            this.btnDownloadImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDownloadImage.UseVisualStyleBackColor = false;
+            this.btnDownloadImage.Click += new System.EventHandler(this.btnDownloadImage_Click_1);
+            // 
+            // btnDecryptImage
+            // 
+            this.btnDecryptImage.BackColor = System.Drawing.Color.White;
+            this.btnDecryptImage.Image = global::HC128.Desktop.Properties.Resources.unlock;
+            this.btnDecryptImage.Location = new System.Drawing.Point(12, 408);
+            this.btnDecryptImage.Name = "btnDecryptImage";
+            this.btnDecryptImage.Size = new System.Drawing.Size(159, 43);
+            this.btnDecryptImage.TabIndex = 7;
+            this.btnDecryptImage.Text = "Desencriptar Imagen";
+            this.btnDecryptImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDecryptImage.UseVisualStyleBackColor = false;
+            this.btnDecryptImage.Click += new System.EventHandler(this.btnDecryptImage_Click_1);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = global::HC128.Desktop.Properties.Resources.load;
+            this.btnUpdate.Location = new System.Drawing.Point(12, 63);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(159, 41);
+            this.btnUpdate.TabIndex = 0;
+            this.btnUpdate.Text = "Actualizar";
+            this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // picBox
+            // 
+            this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox.Location = new System.Drawing.Point(188, -2);
+            this.picBox.Name = "picBox";
+            this.picBox.Size = new System.Drawing.Size(800, 564);
+            this.picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox.TabIndex = 4;
+            this.picBox.TabStop = false;
+            // 
+            // btnAbrirCarpeta
+            // 
+            this.btnAbrirCarpeta.BackColor = System.Drawing.Color.White;
+            this.btnAbrirCarpeta.ForeColor = System.Drawing.Color.Black;
+            this.btnAbrirCarpeta.Image = global::HC128.Desktop.Properties.Resources.folder;
+            this.btnAbrirCarpeta.Location = new System.Drawing.Point(92, 506);
+            this.btnAbrirCarpeta.Name = "btnAbrirCarpeta";
+            this.btnAbrirCarpeta.Size = new System.Drawing.Size(79, 43);
+            this.btnAbrirCarpeta.TabIndex = 12;
+            this.btnAbrirCarpeta.Text = "Folder";
+            this.btnAbrirCarpeta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbrirCarpeta.UseVisualStyleBackColor = false;
+            this.btnAbrirCarpeta.Visible = false;
+            this.btnAbrirCarpeta.Click += new System.EventHandler(this.btnAbrirCarpeta_Click);
+            // 
             // FrmDecrypt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.btnAbrirCarpeta);
+            this.Controls.Add(this.btnAbrirImg);
             this.Controls.Add(this.txtIPServer);
             this.Controls.Add(this.lblIpServer);
             this.Controls.Add(this.btnDownloadImage);
@@ -192,5 +227,7 @@
         private System.Windows.Forms.Button btnDownloadImage;
         private System.Windows.Forms.TextBox txtIPServer;
         private System.Windows.Forms.Label lblIpServer;
+        private System.Windows.Forms.Button btnAbrirImg;
+        private System.Windows.Forms.Button btnAbrirCarpeta;
     }
 }

@@ -19,7 +19,8 @@ namespace HC128.Desktop
     public partial class FrmDecrypt : Form
     {
         //private static string IPRegex = @"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
-
+        private string pathFolder;
+        private string pathFile;
         public FrmDecrypt()
         {
             InitializeComponent();
@@ -98,50 +99,53 @@ namespace HC128.Desktop
 
         private void btnDownloadImage_Click_1(object sender, EventArgs e)
         {
-            Stream myStream;
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-
-            saveFileDialog1.Title = "Save Image";
-            saveFileDialog1.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
-            saveFileDialog1.FilterIndex = 2;
-            saveFileDialog1.RestoreDirectory = true;
-            saveFileDialog1.FileName = listFiles.SelectedItem.ToString();
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            // Save dialog para guardar archivo
+            SaveFileDialog sf = new SaveFileDialog();
+            // Filtros
+            sf.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            // Escribe el nombre del archivo
+            sf.FileName = listFiles.SelectedItem.ToString();
+            // Muestra el dialog
+            sf.ShowDialog();
+            // Si existe ruta
+            if(sf.FileName != null)
             {
-                if ((myStream = saveFileDialog1.OpenFile()) != null)
+                // busco el bitmap
+                Bitmap imgOrigin = (Bitmap)picBox.Image;
+                // Creo un nuevo bitmap. Si no hago eso, tira error
+                Bitmap img = new Bitmap(imgOrigin);
+                #region // Guardo archivo dependiendo la extensión
+                var path = sf.FileName;
+                var extensiones = path.Split('.');
+                var extension = extensiones[extensiones.Count() - 1];
+                switch (extension.ToLower())
                 {
-                    // Code to write the stream goes here.
-                    var path = saveFileDialog1.FileName;
-                    //var path = listFiles.SelectedItem.ToString();
-                    //var extensiones = path.Split('.');
-                    //var extension = extensiones[extensiones.Count()-1];
-                    Bitmap bm = new Bitmap(picBox.Image);
-                    bm.Save(path, ImageFormat.Jpeg);
-                    //switch (extension)
-                    //{
-                    //    case "jpg":
-                    //        picBox.Image.Save(path, ImageFormat.Jpeg);
-                    //        break;
+                    case "jpg":
+                        img.Save(path, ImageFormat.Jpeg);
+                        break;
 
-                    //    case "jpeg":
-                    //        picBox.Image.Save(path, ImageFormat.Jpeg);
-                    //        break;
+                    case "jpeg":
+                        img.Save(path, ImageFormat.Jpeg);
+                        break;
 
-                    //    case "bmp":
-                    //        picBox.Image.Save(path, ImageFormat.Bmp);
-                    //        break;
+                    case "bmp":
+                        img.Save(path, ImageFormat.Bmp);
+                        break;
 
-                    //    case "png":
-                    //        picBox.Image.Save(path, ImageFormat.Png);
-                    //        break;
-
-                    //    default:
-                    //        picBox.Image.Save(path, ImageFormat.Jpeg);
-                    //        break;
-                    //}
-                    myStream.Close();
+                    case "png":
+                        img.Save(path, ImageFormat.Png);
+                        break;
+                    default:
+                        img.Save(path, ImageFormat.Jpeg);
+                        break;
                 }
+                img.Dispose();
+                #endregion
+                
+                pathFile = sf.FileName;
+                pathFolder = sf.FileName.Replace(listFiles.SelectedItem.ToString(), "");
+                btnAbrirCarpeta.Visible = true;
+                btnAbrirImg.Visible = true;
             }
         }
 
@@ -177,6 +181,16 @@ namespace HC128.Desktop
                 MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 MessageBox.Show(this, message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnAbrirImg_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(pathFile);
+        }
+
+        private void btnAbrirCarpeta_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(pathFolder);
         }
     }
 }

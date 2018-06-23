@@ -122,6 +122,7 @@
     <None Include="Icons\camera.ico" />
     <None Include="Icons\folder.ico" />
     <None Include="Icons\download.ico" />
+    <None Include="Icons\Graphicloads-100-Flat-Note.ico" />
     <Content Include="Icons\unlock.ico" />
     <Content Include="Icons\lock.ico" />
   </ItemGroup>
