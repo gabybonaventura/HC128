@@ -70,7 +70,7 @@
             // 
             this.txtIPServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIPServer.Location = new System.Drawing.Point(15, 31);
-            this.txtIPServer.MaxLength = 15;
+            this.txtIPServer.MaxLength = 100;
             this.txtIPServer.Name = "txtIPServer";
             this.txtIPServer.Size = new System.Drawing.Size(156, 22);
             this.txtIPServer.TabIndex = 10;
