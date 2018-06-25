@@ -110,6 +110,8 @@
             // picBox
             // 
             this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox.Image = global::HC128.Desktop.Properties.Resources.Encrypt;
+            this.picBox.InitialImage = null;
             this.picBox.Location = new System.Drawing.Point(184, -1);
             this.picBox.Name = "picBox";
             this.picBox.Size = new System.Drawing.Size(800, 564);

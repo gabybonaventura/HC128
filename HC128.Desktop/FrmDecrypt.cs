@@ -60,10 +60,15 @@ namespace HC128.Desktop
             if (fileName == null)
                 errors.Add("Debe seleccionar un archivo.");
 
-            // Validate FileName
-            //var streamKey = txtStreamKey.Text;
-            //if (streamKey.Length == 0)
-            //    errors.Add("Debe insertar una Stream Key.");
+            // Validate Llave
+            var llave = txtKey.Text;
+            if (llave.Length == 0)
+                errors.Add("Debe insertar una llave.");
+
+            // Validate IV
+            var iv = txtIV.Text;
+            if (iv.Length == 0)
+                errors.Add("Debe insertar un vector de inicialización.");
 
             // Show messagebox
             if (errors.Count() > 0)
@@ -82,13 +87,37 @@ namespace HC128.Desktop
             if(imgApi != null)
             {
                 Byte[] bytes = Convert.FromBase64String(imgApi.imageByteArray);
-                Bitmap bitmap = ConvertImg.ToBitMap(bytes);
+                //Desencripción:
+                int i = 0, j = 0;
+                UInt32[] llave = new UInt32[4];
+                UInt32[] vectorinit = new UInt32[4];
+                foreach (char x in txtKey.Text)
+                {
+                    llave[i] = UInt32.Parse(x.ToString());
+                    i++;
+                }
 
-                picBox.Image = bitmap;
+                foreach (char x in txtIV.Text)
+                {
+                    vectorinit[j] = UInt32.Parse(x.ToString());
+                    j++;
+                }
+                Encrypt desencriptar = new Encrypt(llave, vectorinit);
+                desencriptar.inicializacion();
+                desencriptar.generateKeyStream((bytes.Length) / 4);
+
+                Byte[] plaintext = desencriptar.generateCiphertext(bytes);
+
+                Bitmap bitmap = ConvertImg.ToBitMap(plaintext);
+
+                if(bitmap != null)
+                    picBox.Image = bitmap;
+                else
+                    ShowMessage("Error al desencriptar la imagen.", true);
             }
             else
             {
-                ShowMessage("Error al descargar la imagen.", true);
+                ShowMessage("Error al conectarse con el servidor.", true);
             }
         }
 

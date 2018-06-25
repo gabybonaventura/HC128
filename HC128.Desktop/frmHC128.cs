@@ -43,12 +43,11 @@ namespace HC128.Desktop
             List<string> errors = new List<string>();
 
             // Validate IP Server
-            //Regex regex = new Regex(IPRegex);
             var ipServer = txtIPServer.Text;
-            //if (!regex.IsMatch(ipServer))
             if (ipServer.Length == 0)
                 errors.Add("Debe ingresar una IP.");
-
+            
+            // PicBox
             var img = picBox.Image;
             if (img == null)
                 errors.Add("No hay una imagen seleccionada.");
@@ -57,6 +56,16 @@ namespace HC128.Desktop
             var fileName = txtNameImg.Text;
             if (fileName.Length == 0)
                 errors.Add("Debe insertar un nombre.");
+
+            // Validate Llave
+            var llave = txtKey.Text;
+            if (llave.Length == 0)
+                errors.Add("Debe insertar una llave.");
+
+            // Validate IV
+            var iv = txtIV.Text;
+            if (iv.Length == 0)
+                errors.Add("Debe insertar un vector de inicialización.");
 
             // Show messagebox
             if (errors.Count() > 0)
@@ -70,7 +79,6 @@ namespace HC128.Desktop
         public Byte[] Encrypt(string nameFile, Bitmap bitmap)
         {
             ImgDTO img = new ImgDTO(txtNameImg.Text, (Bitmap)picBox.Image);
-            // return img.Encrypt();
             return img.ToBytes();
         }
 
@@ -117,9 +125,30 @@ namespace HC128.Desktop
             var isValidated = ValidateBeforeUpload();
             if (isValidated)
             {
-                //bool postSuccess = false;
+                int i = 0, j = 0;
+                UInt32[] llave = new UInt32[4];
+                UInt32[] vectorinit = new UInt32[4];
+                foreach (char x in txtKey.Text)
+                {
+                    llave[i] = UInt32.Parse(x.ToString());
+                    i++;
+                }
+
+                foreach (char x in txtIV.Text)
+                {
+                    vectorinit[j] = UInt32.Parse(x.ToString());
+                    j++;
+                }
+
                 Byte[] encrypt = Encrypt(txtNameImg.Text, (Bitmap)picBox.Image);
-                Upload(txtNameImg.Text, encrypt);
+
+                Encrypt encriptar = new Encrypt(llave, vectorinit);
+                encriptar.inicializacion();
+                encriptar.generateKeyStream((encrypt.Length) / 4);
+
+                Byte[] ciphertext = encriptar.generateCiphertext(encrypt);
+
+                Upload(txtNameImg.Text, ciphertext);
             }
         }
 

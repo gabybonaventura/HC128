@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="Models\API.cs" />
     <Compile Include="Models\ConvertImg.cs" />
+    <Compile Include="Models\Encrypt.cs" />
     <Compile Include="Models\ImgAPI.cs" />
     <Compile Include="Models\ImgDTO.cs" />
     <Compile Include="Models\ImgGrid.cs" />
@@ -117,6 +118,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Img\Decrypt.png" />
+    <Content Include="Img\Encrypt.png" />
     <None Include="Icons\load.ico" />
     <None Include="Icons\upload.ico" />
     <None Include="Icons\camera.ico" />

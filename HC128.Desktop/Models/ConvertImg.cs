@@ -21,9 +21,16 @@ namespace HC128.Desktop.Models
             MemoryStream mStream = new MemoryStream();
             byte[] pData = bytes;
             mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-            Bitmap bm = new Bitmap(mStream, false);
-            mStream.Dispose();
-            return bm;
+            try
+            {
+                Bitmap bm = new Bitmap(mStream, false);
+                mStream.Dispose();
+                return bm;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

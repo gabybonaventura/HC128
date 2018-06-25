@@ -32,16 +32,16 @@
             this.listFiles = new System.Windows.Forms.ListBox();
             this.txtIPServer = new System.Windows.Forms.TextBox();
             this.lblIpServer = new System.Windows.Forms.Label();
+            this.txtIV = new System.Windows.Forms.TextBox();
+            this.lblIV = new System.Windows.Forms.Label();
+            this.txtKey = new System.Windows.Forms.TextBox();
+            this.lblKey = new System.Windows.Forms.Label();
+            this.btnAbrirCarpeta = new System.Windows.Forms.Button();
             this.btnAbrirImg = new System.Windows.Forms.Button();
             this.btnDownloadImage = new System.Windows.Forms.Button();
             this.btnDecryptImage = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.picBox = new System.Windows.Forms.PictureBox();
-            this.btnAbrirCarpeta = new System.Windows.Forms.Button();
-            this.txtIV = new System.Windows.Forms.TextBox();
-            this.lblIV = new System.Windows.Forms.Label();
-            this.txtKey = new System.Windows.Forms.TextBox();
-            this.lblKey = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +86,58 @@
             this.lblIpServer.Size = new System.Drawing.Size(72, 16);
             this.lblIpServer.TabIndex = 9;
             this.lblIpServer.Text = "IP Server";
+            // 
+            // txtIV
+            // 
+            this.txtIV.Location = new System.Drawing.Point(12, 337);
+            this.txtIV.MaxLength = 4;
+            this.txtIV.Name = "txtIV";
+            this.txtIV.Size = new System.Drawing.Size(159, 20);
+            this.txtIV.TabIndex = 16;
+            // 
+            // lblIV
+            // 
+            this.lblIV.AutoSize = true;
+            this.lblIV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIV.ForeColor = System.Drawing.Color.White;
+            this.lblIV.Location = new System.Drawing.Point(9, 318);
+            this.lblIV.Name = "lblIV";
+            this.lblIV.Size = new System.Drawing.Size(147, 16);
+            this.lblIV.TabIndex = 15;
+            this.lblIV.Text = "Vector Inicialización";
+            // 
+            // txtKey
+            // 
+            this.txtKey.Location = new System.Drawing.Point(12, 295);
+            this.txtKey.MaxLength = 4;
+            this.txtKey.Name = "txtKey";
+            this.txtKey.Size = new System.Drawing.Size(159, 20);
+            this.txtKey.TabIndex = 14;
+            // 
+            // lblKey
+            // 
+            this.lblKey.AutoSize = true;
+            this.lblKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKey.ForeColor = System.Drawing.Color.White;
+            this.lblKey.Location = new System.Drawing.Point(9, 276);
+            this.lblKey.Name = "lblKey";
+            this.lblKey.Size = new System.Drawing.Size(46, 16);
+            this.lblKey.TabIndex = 13;
+            this.lblKey.Text = "Llave";
+            // 
+            // btnAbrirCarpeta
+            // 
+            this.btnAbrirCarpeta.BackColor = System.Drawing.Color.White;
+            this.btnAbrirCarpeta.ForeColor = System.Drawing.Color.Black;
+            this.btnAbrirCarpeta.Image = global::HC128.Desktop.Properties.Resources.folder;
+            this.btnAbrirCarpeta.Location = new System.Drawing.Point(92, 506);
+            this.btnAbrirCarpeta.Name = "btnAbrirCarpeta";
+            this.btnAbrirCarpeta.Size = new System.Drawing.Size(79, 43);
+            this.btnAbrirCarpeta.TabIndex = 12;
+            this.btnAbrirCarpeta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbrirCarpeta.UseVisualStyleBackColor = false;
+            this.btnAbrirCarpeta.Visible = false;
+            this.btnAbrirCarpeta.Click += new System.EventHandler(this.btnAbrirCarpeta_Click);
             // 
             // btnAbrirImg
             // 
@@ -144,64 +196,13 @@
             // picBox
             // 
             this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox.Image = global::HC128.Desktop.Properties.Resources.Decrypt;
             this.picBox.Location = new System.Drawing.Point(188, -2);
             this.picBox.Name = "picBox";
             this.picBox.Size = new System.Drawing.Size(800, 564);
             this.picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox.TabIndex = 4;
             this.picBox.TabStop = false;
-            // 
-            // btnAbrirCarpeta
-            // 
-            this.btnAbrirCarpeta.BackColor = System.Drawing.Color.White;
-            this.btnAbrirCarpeta.ForeColor = System.Drawing.Color.Black;
-            this.btnAbrirCarpeta.Image = global::HC128.Desktop.Properties.Resources.folder;
-            this.btnAbrirCarpeta.Location = new System.Drawing.Point(92, 506);
-            this.btnAbrirCarpeta.Name = "btnAbrirCarpeta";
-            this.btnAbrirCarpeta.Size = new System.Drawing.Size(79, 43);
-            this.btnAbrirCarpeta.TabIndex = 12;
-            this.btnAbrirCarpeta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAbrirCarpeta.UseVisualStyleBackColor = false;
-            this.btnAbrirCarpeta.Visible = false;
-            this.btnAbrirCarpeta.Click += new System.EventHandler(this.btnAbrirCarpeta_Click);
-            // 
-            // txtIV
-            // 
-            this.txtIV.Location = new System.Drawing.Point(12, 337);
-            this.txtIV.MaxLength = 4;
-            this.txtIV.Name = "txtIV";
-            this.txtIV.Size = new System.Drawing.Size(159, 20);
-            this.txtIV.TabIndex = 16;
-            // 
-            // lblIV
-            // 
-            this.lblIV.AutoSize = true;
-            this.lblIV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIV.ForeColor = System.Drawing.Color.White;
-            this.lblIV.Location = new System.Drawing.Point(9, 318);
-            this.lblIV.Name = "lblIV";
-            this.lblIV.Size = new System.Drawing.Size(147, 16);
-            this.lblIV.TabIndex = 15;
-            this.lblIV.Text = "Vector Inicialización";
-            // 
-            // txtKey
-            // 
-            this.txtKey.Location = new System.Drawing.Point(12, 295);
-            this.txtKey.MaxLength = 4;
-            this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(159, 20);
-            this.txtKey.TabIndex = 14;
-            // 
-            // lblKey
-            // 
-            this.lblKey.AutoSize = true;
-            this.lblKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKey.ForeColor = System.Drawing.Color.White;
-            this.lblKey.Location = new System.Drawing.Point(9, 276);
-            this.lblKey.Name = "lblKey";
-            this.lblKey.Size = new System.Drawing.Size(46, 16);
-            this.lblKey.TabIndex = 13;
-            this.lblKey.Text = "Llave";
             // 
             // FrmDecrypt
             // 
