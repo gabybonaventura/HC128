@@ -32,6 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dynamsoft.Camera">
+      <HintPath>..\..\WebCamDemo\WebcamDemo\WebcamDemo\bin\Release\Dynamsoft.Camera.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamsoft.Forms.Viewer">
+      <HintPath>..\..\WebCamDemo\WebcamDemo\WebcamDemo\bin\Release\Dynamsoft.Forms.Viewer.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamsoft.ImageCore">
+      <HintPath>..\..\WebCamDemo\WebcamDemo\WebcamDemo\bin\Release\Dynamsoft.ImageCore.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -84,6 +93,12 @@
     <Compile Include="Models\ImgGrid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebCam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebCam.Designer.cs">
+      <DependentUpon>WebCam.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmDecrypt.resx">
       <DependentUpon>FrmDecrypt.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +118,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WebCam.resx">
+      <DependentUpon>WebCam.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -118,6 +136,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icons\ok.ico" />
     <Content Include="Img\Decrypt.png" />
     <Content Include="Img\Encrypt.png" />
     <None Include="Icons\load.ico" />

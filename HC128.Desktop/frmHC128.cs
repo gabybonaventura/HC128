@@ -12,23 +12,39 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using WebcamDemo;
 
 namespace HC128.Desktop
 {
     public partial class FrmHC128 : Form
     {
         //private static string IPRegex = @"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
-
+        bool isCall = false;
         public FrmHC128()
         {
             InitializeComponent();
+           
 
         }
+        
 
         private void FrmHC128_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void OnGotFocus(EventArgs e)
+        {
+            base.OnGotFocus(e);
+            if (isCall)
+            {
+                string ImagePath = Path.Combine(new string[] { Environment.CurrentDirectory, "image.png" });
+                picBox.Image = new Bitmap(ImagePath);
+                txtNameImg.Text = "WebCam Imagen";
+                EnableBtns();
+                isCall = false;
+
+            }
         }
 
         private void EnableBtns()
@@ -163,7 +179,23 @@ namespace HC128.Desktop
 
         private void btnWebCam_Click(object sender, EventArgs e)
         {
-            //EnableBtns();
+            isCall = true;
+            WebCam webCam = new WebCam(this);
+            webCam.Show();
+            /*
+            string ImagePath = Path.Combine(new string[] { Environment.CurrentDirectory, "image_cam.png" });
+            picBox.Image = new Bitmap(ImagePath);
+            txtNameImg.Text = "WebCam Imagen";
+            EnableBtns();
+            */
+            
+        }
+
+        public void loadPicture(Bitmap bitmap)
+        {
+            picBox.Image = new Bitmap(bitmap);
+            txtNameImg.Text = "WebCam Imagen";
+            EnableBtns();
         }
 
     }

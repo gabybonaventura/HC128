@@ -28,5 +28,6 @@ namespace HC128.Desktop
             FrmDecrypt frmDecrypt = new FrmDecrypt();
             frmDecrypt.Show();
         }
+    
     }
 }

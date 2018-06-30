@@ -50,9 +50,10 @@
             this.lblFiles.AutoSize = true;
             this.lblFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiles.ForeColor = System.Drawing.Color.White;
-            this.lblFiles.Location = new System.Drawing.Point(9, 107);
+            this.lblFiles.Location = new System.Drawing.Point(12, 132);
+            this.lblFiles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiles.Name = "lblFiles";
-            this.lblFiles.Size = new System.Drawing.Size(130, 16);
+            this.lblFiles.Size = new System.Drawing.Size(160, 20);
             this.lblFiles.TabIndex = 1;
             this.lblFiles.Text = "Lista de archivos:";
             // 
@@ -60,19 +61,22 @@
             // 
             this.listFiles.AllowDrop = true;
             this.listFiles.FormattingEnabled = true;
-            this.listFiles.Location = new System.Drawing.Point(12, 126);
+            this.listFiles.ItemHeight = 16;
+            this.listFiles.Location = new System.Drawing.Point(16, 155);
+            this.listFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listFiles.Name = "listFiles";
-            this.listFiles.Size = new System.Drawing.Size(159, 147);
+            this.listFiles.Size = new System.Drawing.Size(211, 180);
             this.listFiles.Sorted = true;
             this.listFiles.TabIndex = 3;
             // 
             // txtIPServer
             // 
             this.txtIPServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPServer.Location = new System.Drawing.Point(15, 31);
+            this.txtIPServer.Location = new System.Drawing.Point(20, 38);
+            this.txtIPServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIPServer.MaxLength = 100;
             this.txtIPServer.Name = "txtIPServer";
-            this.txtIPServer.Size = new System.Drawing.Size(156, 22);
+            this.txtIPServer.Size = new System.Drawing.Size(207, 26);
             this.txtIPServer.TabIndex = 10;
             this.txtIPServer.Text = "127.0.0.1:60757";
             // 
@@ -81,18 +85,20 @@
             this.lblIpServer.AutoSize = true;
             this.lblIpServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIpServer.ForeColor = System.Drawing.Color.White;
-            this.lblIpServer.Location = new System.Drawing.Point(12, 12);
+            this.lblIpServer.Location = new System.Drawing.Point(16, 15);
+            this.lblIpServer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIpServer.Name = "lblIpServer";
-            this.lblIpServer.Size = new System.Drawing.Size(72, 16);
+            this.lblIpServer.Size = new System.Drawing.Size(87, 20);
             this.lblIpServer.TabIndex = 9;
             this.lblIpServer.Text = "IP Server";
             // 
             // txtIV
             // 
-            this.txtIV.Location = new System.Drawing.Point(12, 337);
+            this.txtIV.Location = new System.Drawing.Point(16, 415);
+            this.txtIV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIV.MaxLength = 4;
             this.txtIV.Name = "txtIV";
-            this.txtIV.Size = new System.Drawing.Size(159, 20);
+            this.txtIV.Size = new System.Drawing.Size(211, 22);
             this.txtIV.TabIndex = 16;
             // 
             // lblIV
@@ -100,28 +106,32 @@
             this.lblIV.AutoSize = true;
             this.lblIV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIV.ForeColor = System.Drawing.Color.White;
-            this.lblIV.Location = new System.Drawing.Point(9, 318);
+            this.lblIV.Location = new System.Drawing.Point(12, 391);
+            this.lblIV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIV.Name = "lblIV";
-            this.lblIV.Size = new System.Drawing.Size(147, 16);
+            this.lblIV.Size = new System.Drawing.Size(180, 20);
             this.lblIV.TabIndex = 15;
             this.lblIV.Text = "Vector Inicialización";
             // 
             // txtKey
             // 
-            this.txtKey.Location = new System.Drawing.Point(12, 295);
+            this.txtKey.Location = new System.Drawing.Point(16, 363);
+            this.txtKey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtKey.MaxLength = 4;
             this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(159, 20);
+            this.txtKey.Size = new System.Drawing.Size(211, 22);
             this.txtKey.TabIndex = 14;
+            this.txtKey.TextChanged += new System.EventHandler(this.txtKey_TextChanged);
             // 
             // lblKey
             // 
             this.lblKey.AutoSize = true;
             this.lblKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKey.ForeColor = System.Drawing.Color.White;
-            this.lblKey.Location = new System.Drawing.Point(9, 276);
+            this.lblKey.Location = new System.Drawing.Point(12, 340);
+            this.lblKey.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKey.Name = "lblKey";
-            this.lblKey.Size = new System.Drawing.Size(46, 16);
+            this.lblKey.Size = new System.Drawing.Size(54, 20);
             this.lblKey.TabIndex = 13;
             this.lblKey.Text = "Llave";
             // 
@@ -130,9 +140,10 @@
             this.btnAbrirCarpeta.BackColor = System.Drawing.Color.White;
             this.btnAbrirCarpeta.ForeColor = System.Drawing.Color.Black;
             this.btnAbrirCarpeta.Image = global::HC128.Desktop.Properties.Resources.folder;
-            this.btnAbrirCarpeta.Location = new System.Drawing.Point(92, 506);
+            this.btnAbrirCarpeta.Location = new System.Drawing.Point(123, 623);
+            this.btnAbrirCarpeta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAbrirCarpeta.Name = "btnAbrirCarpeta";
-            this.btnAbrirCarpeta.Size = new System.Drawing.Size(79, 43);
+            this.btnAbrirCarpeta.Size = new System.Drawing.Size(105, 53);
             this.btnAbrirCarpeta.TabIndex = 12;
             this.btnAbrirCarpeta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAbrirCarpeta.UseVisualStyleBackColor = false;
@@ -144,9 +155,10 @@
             this.btnAbrirImg.BackColor = System.Drawing.Color.White;
             this.btnAbrirImg.ForeColor = System.Drawing.Color.Black;
             this.btnAbrirImg.Image = global::HC128.Desktop.Properties.Resources.Graphicloads_100_Flat_Note;
-            this.btnAbrirImg.Location = new System.Drawing.Point(12, 506);
+            this.btnAbrirImg.Location = new System.Drawing.Point(16, 623);
+            this.btnAbrirImg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAbrirImg.Name = "btnAbrirImg";
-            this.btnAbrirImg.Size = new System.Drawing.Size(79, 43);
+            this.btnAbrirImg.Size = new System.Drawing.Size(105, 53);
             this.btnAbrirImg.TabIndex = 11;
             this.btnAbrirImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAbrirImg.UseVisualStyleBackColor = false;
@@ -158,9 +170,10 @@
             this.btnDownloadImage.BackColor = System.Drawing.Color.White;
             this.btnDownloadImage.Enabled = false;
             this.btnDownloadImage.Image = global::HC128.Desktop.Properties.Resources.download;
-            this.btnDownloadImage.Location = new System.Drawing.Point(12, 457);
+            this.btnDownloadImage.Location = new System.Drawing.Point(16, 562);
+            this.btnDownloadImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDownloadImage.Name = "btnDownloadImage";
-            this.btnDownloadImage.Size = new System.Drawing.Size(159, 43);
+            this.btnDownloadImage.Size = new System.Drawing.Size(212, 53);
             this.btnDownloadImage.TabIndex = 8;
             this.btnDownloadImage.Text = "Descargar Imagen";
             this.btnDownloadImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -171,9 +184,10 @@
             // 
             this.btnDecryptImage.BackColor = System.Drawing.Color.White;
             this.btnDecryptImage.Image = global::HC128.Desktop.Properties.Resources.unlock;
-            this.btnDecryptImage.Location = new System.Drawing.Point(12, 408);
+            this.btnDecryptImage.Location = new System.Drawing.Point(16, 502);
+            this.btnDecryptImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDecryptImage.Name = "btnDecryptImage";
-            this.btnDecryptImage.Size = new System.Drawing.Size(159, 43);
+            this.btnDecryptImage.Size = new System.Drawing.Size(212, 53);
             this.btnDecryptImage.TabIndex = 7;
             this.btnDecryptImage.Text = "Desencriptar Imagen";
             this.btnDecryptImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -184,9 +198,10 @@
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.White;
             this.btnUpdate.Image = global::HC128.Desktop.Properties.Resources.load;
-            this.btnUpdate.Location = new System.Drawing.Point(12, 63);
+            this.btnUpdate.Location = new System.Drawing.Point(16, 78);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(159, 41);
+            this.btnUpdate.Size = new System.Drawing.Size(212, 50);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -197,19 +212,20 @@
             // 
             this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picBox.Image = global::HC128.Desktop.Properties.Resources.Decrypt;
-            this.picBox.Location = new System.Drawing.Point(188, -2);
+            this.picBox.Location = new System.Drawing.Point(251, -2);
+            this.picBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(800, 564);
+            this.picBox.Size = new System.Drawing.Size(1066, 694);
             this.picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox.TabIndex = 4;
             this.picBox.TabStop = false;
             // 
             // FrmDecrypt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1312, 690);
             this.Controls.Add(this.txtIV);
             this.Controls.Add(this.lblIV);
             this.Controls.Add(this.txtKey);
@@ -225,6 +241,7 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.picBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FrmDecrypt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

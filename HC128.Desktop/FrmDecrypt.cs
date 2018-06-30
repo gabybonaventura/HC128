@@ -221,5 +221,10 @@ namespace HC128.Desktop
         {
             System.Diagnostics.Process.Start(pathFolder);
         }
+
+        private void txtKey_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
