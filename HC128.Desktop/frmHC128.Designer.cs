@@ -40,6 +40,7 @@
             this.lblKey = new System.Windows.Forms.Label();
             this.txtIV = new System.Windows.Forms.TextBox();
             this.lblIV = new System.Windows.Forms.Label();
+            this.chxVistaAvanzada = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             this.lblIpServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIpServer.Location = new System.Drawing.Point(9, 459);
             this.lblIpServer.Name = "lblIpServer";
-            this.lblIpServer.Size = new System.Drawing.Size(72, 16);
+            this.lblIpServer.Size = new System.Drawing.Size(87, 20);
             this.lblIpServer.TabIndex = 3;
             this.lblIpServer.Text = "IP Server";
             // 
@@ -59,7 +60,7 @@
             this.txtIPServer.Location = new System.Drawing.Point(12, 478);
             this.txtIPServer.MaxLength = 100;
             this.txtIPServer.Name = "txtIPServer";
-            this.txtIPServer.Size = new System.Drawing.Size(159, 22);
+            this.txtIPServer.Size = new System.Drawing.Size(159, 26);
             this.txtIPServer.TabIndex = 4;
             this.txtIPServer.Text = "127.0.0.1:60757";
             // 
@@ -67,7 +68,7 @@
             // 
             this.txtNameImg.Location = new System.Drawing.Point(12, 125);
             this.txtNameImg.Name = "txtNameImg";
-            this.txtNameImg.Size = new System.Drawing.Size(159, 20);
+            this.txtNameImg.Size = new System.Drawing.Size(159, 22);
             this.txtNameImg.TabIndex = 7;
             // 
             // lblNameImg
@@ -76,7 +77,7 @@
             this.lblNameImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameImg.Location = new System.Drawing.Point(9, 106);
             this.lblNameImg.Name = "lblNameImg";
-            this.lblNameImg.Size = new System.Drawing.Size(118, 16);
+            this.lblNameImg.Size = new System.Drawing.Size(140, 20);
             this.lblNameImg.TabIndex = 6;
             this.lblNameImg.Text = "Nombre Imagen";
             // 
@@ -137,7 +138,7 @@
             this.txtKey.Location = new System.Drawing.Point(12, 167);
             this.txtKey.MaxLength = 4;
             this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(159, 20);
+            this.txtKey.Size = new System.Drawing.Size(159, 22);
             this.txtKey.TabIndex = 9;
             // 
             // lblKey
@@ -146,7 +147,7 @@
             this.lblKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKey.Location = new System.Drawing.Point(9, 148);
             this.lblKey.Name = "lblKey";
-            this.lblKey.Size = new System.Drawing.Size(46, 16);
+            this.lblKey.Size = new System.Drawing.Size(54, 20);
             this.lblKey.TabIndex = 8;
             this.lblKey.Text = "Llave";
             // 
@@ -155,7 +156,7 @@
             this.txtIV.Location = new System.Drawing.Point(12, 209);
             this.txtIV.MaxLength = 4;
             this.txtIV.Name = "txtIV";
-            this.txtIV.Size = new System.Drawing.Size(159, 20);
+            this.txtIV.Size = new System.Drawing.Size(159, 22);
             this.txtIV.TabIndex = 11;
             // 
             // lblIV
@@ -164,15 +165,26 @@
             this.lblIV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIV.Location = new System.Drawing.Point(9, 190);
             this.lblIV.Name = "lblIV";
-            this.lblIV.Size = new System.Drawing.Size(147, 16);
+            this.lblIV.Size = new System.Drawing.Size(180, 20);
             this.lblIV.TabIndex = 10;
             this.lblIV.Text = "Vector Inicialización";
+            // 
+            // chxVistaAvanzada
+            // 
+            this.chxVistaAvanzada.AutoSize = true;
+            this.chxVistaAvanzada.Location = new System.Drawing.Point(13, 435);
+            this.chxVistaAvanzada.Name = "chxVistaAvanzada";
+            this.chxVistaAvanzada.Size = new System.Drawing.Size(128, 21);
+            this.chxVistaAvanzada.TabIndex = 12;
+            this.chxVistaAvanzada.Text = "Vista Avanzada";
+            this.chxVistaAvanzada.UseVisualStyleBackColor = true;
             // 
             // FrmHC128
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.chxVistaAvanzada);
             this.Controls.Add(this.txtIV);
             this.Controls.Add(this.lblIV);
             this.Controls.Add(this.txtKey);
@@ -211,5 +223,6 @@
         private System.Windows.Forms.Label lblKey;
         private System.Windows.Forms.TextBox txtIV;
         private System.Windows.Forms.Label lblIV;
+        private System.Windows.Forms.CheckBox chxVistaAvanzada;
     }
 }

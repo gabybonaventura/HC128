@@ -98,12 +98,12 @@ namespace HC128.Desktop
             return img.ToBytes();
         }
 
-        private async Task Upload(string nameFile, Byte[] bytes)
+        public async Task Upload(Byte[] bytes)
         {
             string stringImg = Convert.ToBase64String(bytes);
             ImgAPI imgAPI = new ImgAPI
             {
-                imageName = nameFile,
+                imageName = txtNameImg.Text,
                 imageByteArray = stringImg
             };
 
@@ -164,7 +164,19 @@ namespace HC128.Desktop
 
                 Byte[] ciphertext = encriptar.generateCiphertext(encrypt);
 
-                Upload(txtNameImg.Text, ciphertext);
+                if(chxVistaAvanzada.Checked == true)
+                {
+                    FrmVistaAvanzada frmVistaAvanzada = new FrmVistaAvanzada(this,
+                        Convert.ToBase64String(encrypt),
+                        Convert.ToBase64String(ciphertext));
+                    frmVistaAvanzada.Show();
+                }
+                else
+                {
+                    Upload(ciphertext);
+                }
+
+                
             }
         }
 
